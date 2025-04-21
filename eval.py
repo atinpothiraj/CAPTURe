@@ -1,5 +1,6 @@
 import json
 import numpy as np
+import sys
 
 # Function to compute MAPE
 def compute_mape(filename):
@@ -37,4 +38,14 @@ def compute_mape(filename):
     # Calculate MAPE
     mape = total_percentage_error / count if count != 0 else 0
     return mape, skip
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python compute_smape.py <path_to_results_json>")
+        sys.exit(1)
+    
+    input_path = sys.argv[1]
+    mape, skipped = compute_mape(input_path)
+    print(f"sMAPE: {mape:.2f}%")
+    print(f"Skipped predictions: {skipped}")
 

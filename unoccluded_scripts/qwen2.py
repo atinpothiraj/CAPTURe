@@ -3,6 +3,7 @@ from qwen_vl_utils import process_vision_info
 import json
 import transformers
 import torch
+import os
 
 # default: Load the model on the available device(s)
 model = Qwen2VLForConditionalGeneration.from_pretrained(
@@ -77,6 +78,9 @@ def extract_num(answer: str):
         max_new_tokens=256,
     )
     return safe_string_to_int(outputs[0]["generated_text"][-1]["content"])
+
+# Create unocc_results directory if it doesn't exist
+os.makedirs("unocc_results", exist_ok=True)
 
 # SYNTHETIC DATASET
 # Load the JSON data

@@ -72,6 +72,9 @@ def extract_num(answer: str):
     return safe_string_to_int(outputs[0]["generated_text"][-1]["content"])
 
 
+# Create unocc_results directory if it doesn't exist
+os.makedirs("unocc_results", exist_ok=True)
+
 # SYNTHETIC DATASET
 # Load the JSON data
 json_path = "../synthetic_metadata.json"

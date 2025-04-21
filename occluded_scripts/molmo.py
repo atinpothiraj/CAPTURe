@@ -3,6 +3,7 @@ from PIL import Image
 import json
 import transformers
 import torch
+import os
 
 
 # load the processor
@@ -73,6 +74,9 @@ def extract_num(answer: str):
         max_new_tokens=256,
     )
     return safe_string_to_int(outputs[0]["generated_text"][-1]["content"])
+
+# Create occ_results directory if it doesn't exist
+os.makedirs("occ_results", exist_ok=True)
 
 # SYNTHETIC DATASET
 # Load the JSON data

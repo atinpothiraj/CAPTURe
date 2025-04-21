@@ -7,6 +7,7 @@ from torchvision.transforms.functional import InterpolationMode
 from transformers import AutoModel, AutoTokenizer
 import transformers
 import json
+import os
 
 IMAGENET_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_STD = (0.229, 0.224, 0.225)
@@ -129,6 +130,11 @@ def extract_num(answer: str):
         max_new_tokens=256,
     )
     return safe_string_to_int(outputs[0]["generated_text"][-1]["content"])
+
+# Create occ_results directory if it doesn't exist
+os.makedirs("occ_results", exist_ok=True)
+
+# Start processing
 
 # SYNTHETIC DATASET
 # Load the JSON data
