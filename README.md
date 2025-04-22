@@ -4,8 +4,10 @@ This repository contains the code for CAPTURe, a new benchmark and task to evalu
 
 by Atin Pothiraj, Elias Stengel-Eskin, Jaemin Cho, Mohit Bansal
 
+Dataset is available on [Hugging Face](https://huggingface.co/datasets/atinp/CAPTURe).
 ## Abstract
 ![Example question in CAPTURe](assets/capture_example.png)
+
 Recognizing and reasoning about occluded (partially or fully hidden) objects is vital to understanding visual scenes, as occlusions frequently occur in real-world environments and act as obstacles for spatial comprehension. To test models' ability to reason about multiple occluded objects, we introduce a novel task, Counting Amodally for Patterns Through Unseen REgions (CAPTURe), which requires a model to count objects arranged in a pattern by inferring how the pattern continues behind an occluder (an object which blocks parts of the scene). CAPTURe requires both recognizing visual patterns and reasoning, making it an ideal testbed for evaluating vision-language models (VLMs) on whether they understand occluded patterns and possess spatial understanding skills. By requiring models to reason about occluded objects, CAPTURe also tests VLMs' ability to form world models, allowing them to fill in missing information. CAPTURe consists of two parts: (1) CAPTURe-real, with manually filtered images of real objects in patterns and (2) CAPTURe-synthetic, a controlled diagnostic with generated patterned images. We evaluate four strong VLMs -- GPT-4o, Intern-VL2-Llama3, Molmo, and Qwen2-VL -- on CAPTURe, finding that models struggle to count on both occluded and unoccluded patterns. Crucially, we find that models perform worse with occlusion, suggesting that VLMs are also deficient in inferring unseen spatial relationships: even the strongest VLMs like GPT-4o fail to count with occlusion. In contrast, we find that people achieve very little error on CAPTURe. Our analysis indicates that these problems stem from issues in integrating visual signals and forming world models, with performance improving when object coordinates are given as text or when the model is given an oracle world model.
 
 ## Code Structure
@@ -72,6 +74,11 @@ Synthetic dataset generation code is included. Exact images for synthetic datase
 Extract the real dataset by running:
 ```bash
 unzip real_dataset_zip/real_dataset.zip -d ./
+```
+
+Or with huggingface CLI:
+```bash
+# to-do
 ```
 
 ### Running Models
