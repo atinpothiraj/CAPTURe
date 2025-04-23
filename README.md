@@ -1,6 +1,7 @@
 # CAPTURe Code
 This repository contains the code for CAPTURe, a new benchmark and task to evaluate spatial reasoning in vision-language models, as described in the paper:
-[Coming Soon](https://google.com)
+
+[CAPTURE: Evaluating Spatial Reasoning in Vision Language Models via Occluded Object Counting](https://arxiv.org/abs/2504.15485)
 
 by [Atin Pothiraj](https://github.com/atinpothiraj), [Elias Stengel-Eskin](https://esteng.github.io/), [Jaemin Cho](https://j-min.io/), [Mohit Bansal](https://www.cs.unc.edu/~mbansal/)
 
