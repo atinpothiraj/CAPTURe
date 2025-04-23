@@ -90,58 +90,16 @@ export AZURE_API_ENDPOINT=[insert api endpoint]
 export AZURE_API_KEY=[insert key]
 ```
 (Azure API key is only needed for GPT-4o)
-#### Occluded Dataset
 
-Run GPT-4o:
+Set the dataset type and model name to run any model:
 ```bash
-cd occluded_scripts
-python -m gpt.py
+# Options: occluded_scripts or unoccluded_scripts
+SCRIPT_DIR=occluded_scripts        # or unoccluded_scripts
+MODEL=gpt                          # gpt, intern, molmo, qwen2
+
+cd $SCRIPT_DIR
+python -m ${MODEL}.py
 ```
-
-Run Intern:
-```bash
-cd occluded_scripts
-python -m intern.py
-```
-
-Run MoLMo:
-```bash
-cd occluded_scripts
-python -m molmo.py
-```
-
-Run Qwen2:
-```bash
-cd occluded_scripts
-python -m qwen2.py
-```
-
-#### Unoccluded Dataset
-
-Run GPT-4o:
-```bash
-cd unoccluded_scripts
-python -m gpt.py
-```
-
-Run Intern:
-```bash
-cd unoccluded_scripts
-python -m intern.py
-```
-
-Run MoLMo:
-```bash
-cd unoccluded_scripts
-python -m molmo.py
-```
-
-Run Qwen2:
-```bash
-cd unoccluded_scripts
-python -m qwen2.py
-```
-
 Note: If you encounter content filtering issues with GPT-4o, you may need to adjust the content filter settings in your Azure OpenAI service configuration.
 
 ## Evaluation
@@ -154,47 +112,11 @@ python eval.py path/to/your/results.json
 This will calculate and print the sMAPE (Symmetric Mean Absolute Percentage Error) for your model predictions.
 
 ### Example Evaluations
-Evaluate occluded GPT results:
 ```bash
-python eval.py occluded_scripts/occ_results/gpt_real_results.json
-```
-This evaluates GPT-4o performance on the occluded dataset.
+# Choose one of: gpt_real_results, intern_real_results, molmo_real_results, qwen2_real_results
+MODEL=gpt_real_results
 
-Evaluate unoccluded GPT results:
-```bash
-python eval.py unoccluded_scripts/unocc_results/gpt_real_results.json
+python eval.py occluded_scripts/occ_results/${MODEL}.json
+python eval.py unoccluded_scripts/unocc_results/${MODEL}.json
 ```
-This evaluates GPT-4o performance on the unoccluded dataset.
 
-Evaluate Intern results:
-```bash
-python eval.py occluded_scripts/occ_results/intern_real_results.json
-```
-This evaluates Intern performance on the occluded dataset.
-
-```bash
-python eval.py unoccluded_scripts/unocc_results/intern_real_results.json
-```
-This evaluates Intern performance on the unoccluded dataset.
-
-Evaluate MoLMo results:
-```bash
-python eval.py occluded_scripts/occ_results/molmo_real_results.json
-```
-This evaluates MoLMo performance on the occluded dataset.
-
-```bash
-python eval.py unoccluded_scripts/unocc_results/molmo_real_results.json
-```
-This evaluates MoLMo performance on the unoccluded dataset.
-
-Evaluate Qwen2 results:
-```bash
-python eval.py occluded_scripts/occ_results/qwen2_real_results.json
-```
-This evaluates Qwen2 performance on the occluded dataset.
-
-```bash
-python eval.py unoccluded_scripts/unocc_results/qwen2_real_results.json
-```
-This evaluates Qwen2 performance on the unoccluded dataset.
