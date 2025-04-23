@@ -46,9 +46,16 @@ Extract the real dataset by running:
 unzip real_dataset_zip/real_dataset.zip -d ./
 ```
 
-Or with huggingface CLI:
+Or with huggingface:
 ```bash
-# to-do
+from datasets import load_dataset
+
+# Load the entire dataset
+dataset = load_dataset("atinp/CAPTURe")
+
+# Access the real and synthetic splits
+real_dataset = dataset["real"]
+synthetic_dataset = dataset["synthetic"]
 ```
 
 ### Running Models
