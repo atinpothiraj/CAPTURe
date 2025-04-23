@@ -2,7 +2,7 @@
 This repository contains the code for CAPTURe, a new benchmark and task to evaluate spatial reasoning in vision-language models, as described in the paper:
 [Coming Soon](https://google.com)
 
-by Atin Pothiraj, Elias Stengel-Eskin, Jaemin Cho, Mohit Bansal
+by [Atin Pothiraj](https://github.com/atinpothiraj), [Elias Stengel-Eskin](https://esteng.github.io/), [Jaemin Cho](https://j-min.io/), [Mohit Bansal](https://www.cs.unc.edu/~mbansal/)
 
 Dataset is available on [Hugging Face](https://huggingface.co/datasets/atinp/CAPTURe).
 ## Abstract
