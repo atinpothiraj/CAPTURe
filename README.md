@@ -48,14 +48,21 @@ unzip real_dataset_zip/real_dataset.zip -d ./
 
 Or with huggingface:
 ```bash
-from datasets import load_dataset
+from huggingface_hub import hf_hub_download
+import zipfile
+import os
 
-# Load the entire dataset
-dataset = load_dataset("atinp/CAPTURe")
+real_zip = hf_hub_download(repo_id="atinp/CAPTURe", filename="real_dataset.zip", repo_type="dataset")
+syn_zip  = hf_hub_download(repo_id="atinp/CAPTURe", filename="synthetic_dataset.zip", repo_type="dataset")
 
-# Access the real and synthetic splits
-real_dataset = dataset["real"]
-synthetic_dataset = dataset["synthetic"]
+with zipfile.ZipFile(real_zip, 'r') as zip_ref:
+    zip_ref.extractall()
+
+# rename the extracted folder (originally called dataset) to real_dataset
+os.rename("dataset", "real_dataset")
+
+with zipfile.ZipFile(syn_zip, 'r') as zip_ref:
+    zip_ref.extractall()
 ```
 
 ### Running Models
