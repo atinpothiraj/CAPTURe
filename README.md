@@ -53,7 +53,7 @@ Or with huggingface CLI:
 ### Running Models
 Set up environment variables:
 ```bash
-export HF_HOME=[insert desired home directory for models]
+export HF_HOME=[insert desired model home directory]
 export AZURE_API_ENDPOINT=[insert api endpoint]
 export AZURE_API_KEY=[insert key]
 ```
