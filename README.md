@@ -94,9 +94,6 @@ python eval.py unoccluded_scripts/unocc_results/${MODEL}.json
 @misc{pothiraj2025capture,
     title={CAPTURe: Evaluating Spatial Reasoning in Vision Language Models via Occluded Object Counting},
     author={Atin Pothiraj and Elias Stengel-Eskin and Jaemin Cho and Mohit Bansal},
-    year={2025},
-    eprint={2504.15485},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+    year={2025}
 }
 ```
