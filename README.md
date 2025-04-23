@@ -11,52 +11,21 @@ Dataset is available on [Hugging Face](https://huggingface.co/datasets/atinp/CAP
 Recognizing and reasoning about occluded (partially or fully hidden) objects is vital to understanding visual scenes, as occlusions frequently occur in real-world environments and act as obstacles for spatial comprehension. To test models’ ability to reason about multiple occluded objects, we introduce a novel task, Counting Amodally for Patterns Through Unseen REgions (CAPTURE), which requires a model to count objects arranged in a pattern by inferring how the pattern continues behind an occluder (an object which blocks parts of the scene). CAPTURE requires both recognizing visual patterns and reasoning, making it a useful testbed for evaluating vision-language models (VLMs) on whether they understand occluded patterns and possess spatial understanding skills. By requiring models to reason about occluded objects, CAPTURE also tests VLMs’ ability to form world models that would allow them to fill in missing information. CAPTURE consists of two parts: (1) CAPTUREreal, with manually filtered images of real objects in patterns and (2) CAPTUREsynthetic, a controlled diagnostic with generated patterned images. We evaluate four strong VLMs (GPT-4o, Intern-VL2, Molmo, and Qwen2-VL) on CAPTURE, finding that models struggle to count on both occluded and unoccluded patterns. Crucially, we find that models perform worse with occlusion, suggesting that VLMs are also deficient in inferring unseen spatial relationships: even the strongest VLMs like GPT-4o fail to count with occlusion. In contrast, we find that humans achieve very little error on CAPTURE. We also find that providing auxiliary information of occluded object locations increases performance, underscoring that the model error comes both from an inability to handle occlusion as well as difficulty counting in images.
 
 ## Code Structure
-``` bash
+```bash
 occluded_scripts/
-  # GPT-4o implementation for occluded images
-  gpt.py
-  
-  # Intern implementation for occluded images
-  intern.py
-  
-  # MoLMo implementation for occluded images
-  molmo.py
-  
-  # Qwen2 implementation for occluded images
-  qwen2.py
-  
-  # Directory containing model results
-  occ_results/
+  gpt.py, intern.py, molmo.py, qwen2.py      # Model scripts
+  occ_results/                               # Output results
 
 unoccluded_scripts/
-  # GPT-4o implementation for unoccluded images
-  gpt.py
-  
-  # Intern implementation for unoccluded images
-  intern.py
-  
-  # MoLMo implementation for unoccluded images
-  molmo.py
-  
-  # Qwen2 implementation for unoccluded images
-  qwen2.py
-  
-  # Directory containing model results
-  unocc_results/
+  gpt.py, intern.py, molmo.py, qwen2.py      # Model scripts
+  unocc_results/                             # Output results
 
 generate_synthetic/
-  # Code for generating synthetic dataset
-  occluded_dataset/
+  occluded_dataset/                          # Synthetic dataset generator
 
-# Evaluation script
-eval.py
-
-# Compressed real dataset
-real_dataset.zip
-
-# Dataset metadata files
-real_metadata.json
-synthetic_metadata.json
+eval.py                                      # Evaluation script
+real_dataset.zip                             # Real image dataset
+real_metadata.json, synthetic_metadata.json  # Metadata
 ```
 ## Setup
 
